@@ -2,22 +2,59 @@
 
 # Part 1
 
-def sum arr
-  # YOUR CODE HERE
+def sum array
+  sum = 0
+
+  for num in array
+    sum += num
+  end
+
+  return sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  first = second = -99999999
+  
+  if arr.length() == 0
+    return 0
+  elsif arr.length() == 1
+    return arr[0]
+  else
+    for num in arr
+      if num > first 
+        second = first
+        first = num
+      elsif num > second
+        second = num
+      end
+    end
+  end
+
+  return first + second
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  arr = arr.sort
+  left_i = 0
+  right_i = arr.length()-1
+
+  while left_i < right_i
+    if arr[left_i] + arr[right_i] == n
+      return true
+    elsif arr[left_i] + arr[right_i] < n
+      left_i += 1
+    else
+      right_i -= 1
+    end
+  end
+
+  return false
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name
 end
 
 def starts_with_consonant? s
