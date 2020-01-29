@@ -57,8 +57,27 @@ def hello(name)
   return "Hello, " + name
 end
 
+class String
+  def alpha?
+    !!match(/^[[:alpha:]]+$/)
+  end
+end
+
 def starts_with_consonant? s
-  # YOUR CODE HERE
+
+  if s.empty? || !s.alpha?
+    return false
+  end
+
+  s = s.downcase
+  vowels = ['a', 'e', 'i', 'o', 'u']
+
+  for vowel in vowels
+    if s[0] == vowel
+      return false
+    end
+  end
+  return true
 end
 
 def binary_multiple_of_4? s
