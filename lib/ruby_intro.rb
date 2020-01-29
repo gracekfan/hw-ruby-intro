@@ -87,5 +87,20 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize(isbn, price)
+    @isbn = isbn
+    @price = price
+  end
+  def isbn
+    @isbn
+  end
+  def price
+    @price
+  end
+  def isbn=(isbn) 
+    @isbn = isbn 
+  end
+  def price=(price) 
+    @price = price 
+  end
 end
