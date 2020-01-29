@@ -57,15 +57,9 @@ def hello(name)
   return "Hello, " + name
 end
 
-class String
-  def alpha?
-    !!match(/^[[:alpha:]]+$/)
-  end
-end
-
 def starts_with_consonant? s
 
-  if s.empty? || !s.alpha?
+  if s.empty? || !s.match(/^[[:alpha:]]+$/)
     return false
   end
 
@@ -81,7 +75,14 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if !s.match(/^[01]+/)
+    return false
+  end
+  if s.to_i(2) % 4 == 0
+    return true
+  end
+
+  return false
 end
 
 # Part 3
