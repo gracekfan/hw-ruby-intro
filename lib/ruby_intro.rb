@@ -88,19 +88,34 @@ end
 
 class BookInStock
   def initialize(isbn, price)
+    if price <= 0.0
+      raise ArgumentError.new("Invalid price")
+    elsif isbn.empty?
+      raise ArgumentError.new("Invalid ISBN")
+    end
     @isbn = isbn
     @price = price
   end
+
+  #getters
   def isbn
     @isbn
   end
   def price
     @price
   end
+
+  #setters
   def isbn=(isbn) 
     @isbn = isbn 
   end
   def price=(price) 
     @price = price 
   end
+
+  #methods
+  def price_as_string
+    return "$" + '%.2f' % @price
+  end
+  
 end
